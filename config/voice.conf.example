@@ -1,0 +1,12 @@
+# config/voice.conf.example
+#Voice (pipe‑separated, date in field 3, format YYYYMMDD)
+SERVICE_NAME="VOICE_EXAMPLE"
+BASE_PATH="/ruta/del/directorio/voice_example/backup"
+FILE_PATTERN="*.gz"
+FIELD_SEPARATOR="\\|"
+DATE_FIELD_INDEX=3
+DATE_FIELD_FORMAT="%Y%m%d"
+CDR_OFFSETS=(-3 -2)
+declare -A PROC_OFFSETS
+PROC_OFFSETS[-3]="-3 -2 -1"
+PROC_OFFSETS[-2]="-2 -1"

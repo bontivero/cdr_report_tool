@@ -1,0 +1,5 @@
+0 2 * * * /usr/local/bin/reporte_voice.sh
+0 2 * * * /usr/local/bin/reporte_sms.sh
+0 2 * * * /usr/local/bin/reporte_gprs.sh
+0 2 * * * /usr/local/bin/reporte_recharge.sh
+0 2 * * * /usr/local/bin/reporte_roaming.sh

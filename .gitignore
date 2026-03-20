@@ -1,0 +1,4 @@
+# Ignorar archivos temporales y directorios de reportes locales
+*.tmp
+cdr_reports/
+*.log
