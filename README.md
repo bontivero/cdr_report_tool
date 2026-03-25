@@ -4,35 +4,36 @@
 
 ## Overview
 
-This tool generates daily reports of Call Detail Record (CDR) processing counts for multiple services (Voice, SMS, GPRS, Recharge, Roaming). It scans compressed CDR files, counts how many records of a given day were processed on subsequent days, and outputs formatted reports. The tool is highly configurable to adapt to different file formats (delimited or fixed-width) and can be scheduled via cron with automatic retries on failure.
+This tool generates daily reports of Call Detail Record (CDR) processing counts for multiple services (Voice, SMS, GPRS, Recharge, Roaming). It scans CDR files (compressed or uncompressed), counts how many records of a given day were processed on subsequent days, and outputs formatted reports. The tool is highly configurable to adapt to different file formats (delimited or fixed-width) and can be scheduled via cron with automatic retries on failure.
 
 ## Features
 
-- ✅ **Multi‑service support**: Separate configurations for each service (easily extendable).
-- ✅ **Flexible field extraction**:
+- **Multi-service support**: Separate configurations for each service (easily extendable).
+- **Flexible field extraction**:
   - **Delimited fields** (e.g., pipe `|`, comma, whitespace) – specify separator and field index.
-  - **Fixed‑width fields** – specify start position and length.
-- ✅ **Configurable date format** in the CDR files (e.g., `%Y%m%d`, `%d/%m/%Y`).
-- ✅ **Counts CDRs of a given day** that appear in directories of different processing days.
-- ✅ **Automatic output directory** creation (defaults to `./cdr_reports` relative to the script location, can be overridden).
-- ✅ **Retry mechanism**: If report generation fails, the script retries up to 3 times with a 1‑hour delay between attempts.
-- ✅ **Success marker** in the report file to verify completion.
-- ✅ **Easy cron integration** with a single command per service.
-- ✅ **Lightweight**: Written in pure Bash, uses standard tools (`find`, `zcat`, `awk`).
+  - **Fixed-width fields** – specify start position and length.
+- **Configurable date format** in the CDR files (e.g., `%Y%m%d`, `%d/%m/%Y`).
+- **Counts CDRs of a given day** that appear in directories of different processing days.
+- **Supports both compressed and uncompressed files** via `COMPRESSED` flag (`true` for `.gz`, `false` for plain text).
+- **Automatic output directory** creation (defaults to `./cdr_reports` relative to the script location, can be overridden).
+- **Retry mechanism**: If report generation fails, the script retries up to 3 times with a 1‑hour delay between attempts.
+- **Success marker** in the report file to verify completion.
+- **Easy cron integration** with a single command per service.
+- **Lightweight**: Written in pure Bash, uses standard tools (`find`, `zcat`/`cat`, `awk`).
 
 ## Requirements
 
-- **Bash** 4.0 or later (for associative arrays).
-- Standard Unix utilities: `date`, `find`, `xargs`, `zcat`, `awk`, `mkdir`, `mv`, `sleep`.
+- **Bash** 3.2 or later (tested on 3.2.51).
+- Standard Unix utilities: `date`, `find`, `xargs`, `zcat` (if compressed), `cat` (if uncompressed), `awk`, `mkdir`, `mv`, `sleep`.
 - **Access** to the CDR backup directories (read permissions).
 
 ## Installation
 
 1. Clone the repository:
-```bash
-git clone https://github.com/bontivero/cdr-report-tool.git
-cd cdr-report-tool
-```
+   ```bash
+   git clone https://gitlab.etecsa.cu/beatriz.ontivero/cdr-report-tool.git
+   cd cdr-report-tool
+   ```
 
 ## General configuration variables
 
