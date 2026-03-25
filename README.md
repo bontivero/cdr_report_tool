@@ -1,7 +1,5 @@
 # CDR Report Tool
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
 ## Overview
 
 This tool generates daily reports of Call Detail Record (CDR) processing counts for multiple services (Voice, SMS, GPRS, Recharge, Roaming). It scans CDR files (compressed or uncompressed), counts how many records of a given day were processed on subsequent days, and outputs formatted reports. The tool is highly configurable to adapt to different file formats (delimited or fixed-width) and can be scheduled via cron with automatic retries on failure.
@@ -96,11 +94,3 @@ The success marker at the end of the report file is written only if the generati
 - No files found: The script only scans the exact date‑named subdirectories under BASE_PATH. Ensure they exist and contain files matching FILE_PATTERN.
 - Permission denied: Make sure the script has execute permission and the user running it has read access to the CDR directories.
 - Retry loop: If the script repeatedly fails, check the error messages in the temporary file (printed on stderr). You can also inspect the last generated report for the success marker.
-
-# Contributing
-
-Contributions are welcome! Please open an issue or submit a pull request.
-
-## License
-
-This project is licensed under the MIT License – see the LICENSE file for details.
