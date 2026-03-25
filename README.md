@@ -70,6 +70,16 @@ Run the script with a configuration file:
 ./reporte_cdr.sh /path/to/config.conf
 ```
 
+Using create_service_script:
+```bash
+./create_service_script.sh service-name /path/to/config.conf
+```
+
+Executing service script:
+```bash
+./reporte_service.sh > /path/to/log/service.log 2>&1 &
+```
+
 ## Output
 
 Reports are saved in the configured OUTPUT_DIR (default ./cdr_reports) with the name cdr_report_<SERVICE_NAME>_<YYYYMMDD>.txt. Each report contains:
