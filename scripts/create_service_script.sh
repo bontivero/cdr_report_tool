@@ -5,7 +5,6 @@
 
 SERVICE="$1"
 CONFIG="$2"
-DEST="${3:-/usr/local/bin}"
 
 if [ -z "$SERVICE" ] || [ -z "$CONFIG" ]; then
     echo "Uso: $0 <nombre_servicio> <ruta_config> [directorio_destino]"
@@ -13,11 +12,11 @@ if [ -z "$SERVICE" ] || [ -z "$CONFIG" ]; then
 fi
 
 SCRIPT_NAME="reporte_${SERVICE}.sh"
-SCRIPT_PATH="${DEST}/${SCRIPT_NAME}"
+SCRIPT_PATH="${SCRIPT_DIR}/${SCRIPT_NAME}"
 
 # Obtener la ruta absoluta del script principal (asumiendo que está en el mismo directorio que este script)
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-MAIN_SCRIPT="${SCRIPT_DIR}/../reporte_cdr.sh"
+MAIN_SCRIPT="${SCRIPT_DIR}/reporte_cdr.sh"
 
 if [ ! -f "$MAIN_SCRIPT" ]; then
     echo "ERROR: No se encontró el script principal en $MAIN_SCRIPT"

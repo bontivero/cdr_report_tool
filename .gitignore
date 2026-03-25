@@ -2,3 +2,10 @@
 *.tmp
 cdr_reports/
 *.log
+.gitignore
+*.conf
+LICENSE.md
+README.md
+gprs.sh
+otros_serv.sh
+scripts/reporte_*
