@@ -1,16 +1,16 @@
-# config/voice.conf.example
-#Voice (pipe‑separated, date in field 3, format YYYYMMDD)
+# config/voice.conf.example for report module
 SERVICE_NAME="VOICE_EXAMPLE"
-BASE_PATH="/ruta/del/directorio/voice_example/backup"
+PATH_TEMPLATE="data/{date}/{service}/{hour}/backup"
+BACKUP_SUBDIR="backup"
+HOUR_RANGE="00 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23"
 FILE_PATTERN="TTFILE-GSM*"
 FIELD_SEPARATOR="\\|"
 DATE_FIELD_INDEX=3
 DATE_FIELD_FORMAT="%Y%m%d"
 CDR_OFFSETS=(-3 -2)
+COMPRESSED=false
 PROC_OFFSETS_3="-3 -2 -1"
 PROC_OFFSETS_2="-2 -1"
-COMPRESSED=false
-OUTPUT_DIR="/home/monitoreo/reporte_cdr/cdr_reports/voice"
 LOG_FILE="/var/log/cdr_reports/voice_reporte.log"
 MAX_RETRIES=2
 RETRY_DELAY=1800

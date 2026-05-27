@@ -2,11 +2,12 @@
 # Recharge (fixed‑width, date at positions 10‑17, format YYYYMMDD)
 SERVICE_NAME="RECARGAS_EXAMPLE"
 BASE_PATH="/ruta/del/directorio/recharge_example/backup"
-FILE_PATTERN="*.gz"
+FILE_PATTERN="TTFILE-AIR*"
 DATE_FIELD_START=10
 DATE_FIELD_LENGTH=8
 DATE_FIELD_FORMAT="%Y%m%d"
+COMPRESSED=false
 CDR_OFFSETS=(-3 -2)
-declare -A PROC_OFFSETS
-PROC_OFFSETS[-3]="-3 -2 -1 0"
-PROC_OFFSETS[-2]="-2 -1 0"
+PROC_OFFSETS_3="-3 -2 -1"
+PROC_OFFSETS_2="-2 -1"
+OUTPUT_DIR="/home/monitoreo/reporte_cdr/cdr_reports/recharge"
